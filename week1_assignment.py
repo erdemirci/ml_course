@@ -7,8 +7,11 @@
 #Example: [2,3,4,2,7] target = 10, output = [1,4]
 
 def twoSum(nums, target):
-    #your code goes here
-    pass
+    for i in range(len(nums)):
+        find = target - nums[i]
+        for j in range(i+1, len(nums)):
+            if nums[j] == find:
+                return [i, j]
 
 #Time and space complexity:
 
@@ -17,8 +20,17 @@ def twoSum(nums, target):
 #Example: ["flower","flow","flight"] output = "fl"
 
 def findMostCommonPrefix(arr):
-    #your code goes here
-    pass
+    prefix = ''
+    min_length = min(len(element) for element in arr)
+    
+    for i in range(min_length):
+        curr_letter = arr[0][i]
+        if all(element[i] == curr_letter for element in arr):
+            prefix += curr_letter
+        else:
+            break
+
+    return prefix
 
 #Time and space complexity:
 
@@ -61,7 +73,5 @@ def reverseList(head):
     pass
 
 #Time and space complexity:
-
-
-
-
+arr = ['flower', 'flow', 'flight']
+findMostCommonPrefix(arr)
